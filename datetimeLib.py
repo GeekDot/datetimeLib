@@ -9,67 +9,109 @@ import time as _time
 # 时间日期操作
 class DateTimeLib(object):
 
-    # 返回年
+    """
+        * 返回年、月、日、时、分、秒的属性和方法
+    """
     @property
     def year(self):
-        return str(arrow.now().year)
+        return str(arrow.now('+08:00').year)
 
-    # 返回月
+    @staticmethod
+    def year_orm():
+        return str(arrow.now('+08:00').year)
+
     @property
     def month(self):
-        return str(arrow.now().month)
+        return str(arrow.now('+08:00').month)
 
-    # 返回日
+    @staticmethod
+    def month_orm():
+        return str(arrow.now('+08:00').month)
+
     @property
     def day(self):
-        return str(arrow.now().day)
+        return str(arrow.now('+08:00').day)
 
-    # 返回小时
+    @staticmethod
+    def day_orm():
+        return str(arrow.now('+08:00').day)
+
     @property
     def hour(self):
-        return str(arrow.now().hour)
+        return str(arrow.now('+08:00').hour)
 
-    # 返回分钟
+    @staticmethod
+    def hour_orm():
+        return str(arrow.now('+08:00').hour)
+
     @property
     def minute(self):
-        return str(arrow.now().minute)
+        return str(arrow.now('+08:00').minute)
 
-    # 返回秒
+    @staticmethod
+    def minute_orm():
+        return str(arrow.now('+08:00').minute)
+
     @property
     def second(self):
-        return str(arrow.now().second)
+        return str(arrow.now('+08:00').second)
 
-    # 返回日期
+    @staticmethod
+    def second_orm():
+        return str(arrow.now('+08:00').second)
+
+    # 返回日期的属性和方法
     @property
     def date(self):
-        return str(arrow.now().date())
+        return str(arrow.now('+08:00').date())
 
-    # 返回时间
+    @staticmethod
+    def date_orm():
+        return str(arrow.now('+08:00').date())
+
+    # 返回时间的属性和方法
     @property
     def time(self):
-        return str(arrow.now().time()).split('.')[0]
+        return str(arrow.now('+08:00').time()).split('.')[0]
 
-    # 返回日期和时间
+    @staticmethod
+    def time_orm():
+        return str(arrow.now('+08:00').time()).split('.')[0]
+
+    # 返回日期时间的属性和方法
     @property
     def datetime(self):
-        return str(arrow.now().datetime).split('.')[0]
+        return str(arrow.now('+08:00').datetime).split('.')[0]
+
+    @staticmethod
+    def datetime_orm():
+        return str(arrow.now('+08:00').datetime).split('.')[0]
+
+    # 返回无格式日期的属性和方法
+    @property
+    def dt(self):
+        return str(arrow.now('+08:00').date()).replace('-', '')
+
+    @staticmethod
+    def dt_orm():
+        return str(arrow.now('+08:00').date()).replace('-', '')
 
     # 返回当前时间戳
     @property
     def timestamp(self):
-        return str(arrow.now().timestamp)
+        return str(arrow.now('+08:00').timestamp)
 
-    # 日期时间 转 时间戳
+    # 日期时间 <转> 时间戳
     @staticmethod
     def dt2ts(sdt):
-        return str(arrow.get(sdt).to('local').timestamp)
+        return str(arrow.get(sdt).to('+08:00').timestamp)
 
-    # 时间戳 转 日期时间
+    # 时间戳 <转> 日期时间
     @staticmethod
     def ts2dt(sts):
-        return str(arrow.get(int(sts)).to('local')).split('+')[0].replace('T', ' ')
+        return str(arrow.get(int(sts)).to('+08:00')).split('+')[0].replace('T', ' ')
 
-    # 移动时间和日期 sdt:传入时间日期 tp:返回类型 Other:要移动的参数
+    # 移动时间和日期 <sdt>:传入时间日期 <tp>:返回类型 <Other>:要移动的参数
     def move_dt(self, sdt=None, stp=None, year=0, month=0, day=0, hour=0, minute=0, second=0, week=0):
 
         # sdt 默认为当前日期
