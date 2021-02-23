@@ -1,7 +1,7 @@
 *.pyc
 .DS_Store
-.idea/
-__dist__/
-__build__/
+.idea
+__dist__/*
+__build__/*
 __pycache__/
-__datetimeLib.egg-info__/
+__datetimeLib.egg-info__/*

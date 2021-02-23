@@ -206,5 +206,7 @@ Description: <h2 align= center> datetimeLib 时间日期处理库 </h2>
         
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
 Requires-Python: >=3.6
 Description-Content-Type: text/markdown
